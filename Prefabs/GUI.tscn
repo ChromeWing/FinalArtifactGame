@@ -1,0 +1,477 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Art/voxel-pack/PNG/Items/fish.png" type="Texture" id=1]
+[ext_resource path="res://Misc/ToolboxGroup.tres" type="ButtonGroup" id=2]
+[ext_resource path="res://Scripts/GUI/Toolbox.cs" type="Script" id=3]
+[ext_resource path="res://Scripts/GUI/ToolboxButton.cs" type="Script" id=4]
+[ext_resource path="res://Art/HUD_Theme.tres" type="Theme" id=5]
+[ext_resource path="res://Art/GUI_Theme.tres" type="Theme" id=6]
+[ext_resource path="res://Scripts/GUI/EnergyUI.cs" type="Script" id=7]
+[ext_resource path="res://Scripts/GUI/MoneyUI.cs" type="Script" id=8]
+[ext_resource path="res://Art/Artifact1.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/GUI/SpeedLevelUI.cs" type="Script" id=10]
+[ext_resource path="res://Scripts/GUI/EnergyLevelUI.cs" type="Script" id=11]
+[ext_resource path="res://Scripts/GUI/ShopButtonSpeed.cs" type="Script" id=12]
+[ext_resource path="res://Scripts/GUI/ShopButtonEnergy.cs" type="Script" id=13]
+[ext_resource path="res://Scripts/GUI/DeployPriceGuide.cs" type="Script" id=14]
+[ext_resource path="res://Scripts/GUI/ArtifactUI.cs" type="Script" id=15]
+[ext_resource path="res://Art/Title.png" type="Texture" id=16]
+[ext_resource path="res://Scripts/GUI/StartGameButton.cs" type="Script" id=17]
+[ext_resource path="res://Scripts/GUI/WonGameScreen.cs" type="Script" id=18]
+[ext_resource path="res://Scripts/GUI/FinalTimeUI.cs" type="Script" id=19]
+[ext_resource path="res://Scripts/GUI/PlayAgainButton.cs" type="Script" id=20]
+[ext_resource path="res://Art/Gem.png" type="Texture" id=21]
+[ext_resource path="res://Art/Battery.png" type="Texture" id=22]
+[ext_resource path="res://Scripts/GUI/SoundBusVolumeSlider.cs" type="Script" id=23]
+[ext_resource path="res://Art/SpeakerSound.png" type="Texture" id=24]
+[ext_resource path="res://Scripts/GUI/ToggleVolumeMenuButton.cs" type="Script" id=25]
+
+[node name="GUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HUD" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 5 )
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD"]
+visible = false
+anchor_top = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 5 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/PanelContainer"]
+margin_right = 1024.0
+margin_bottom = 60.0
+script = ExtResource( 3 )
+group = ExtResource( 2 )
+
+[node name="TravelNode" type="TextureButton" parent="HUD/PanelContainer/HBoxContainer"]
+margin_right = 338.0
+margin_bottom = 60.0
+size_flags_horizontal = 7
+toggle_mode = true
+group = ExtResource( 2 )
+texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 4 )
+type = 1
+
+[node name="GeneratorNode" type="TextureButton" parent="HUD/PanelContainer/HBoxContainer"]
+margin_left = 342.0
+margin_right = 681.0
+margin_bottom = 60.0
+size_flags_horizontal = 7
+toggle_mode = true
+group = ExtResource( 2 )
+texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 4 )
+type = 3
+
+[node name="MinerNode" type="TextureButton" parent="HUD/PanelContainer/HBoxContainer"]
+margin_left = 685.0
+margin_right = 1024.0
+margin_bottom = 60.0
+size_flags_horizontal = 7
+toggle_mode = true
+group = ExtResource( 2 )
+texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 4 )
+type = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="HUD"]
+anchor_right = 0.33
+anchor_bottom = 0.181
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 5 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/PanelContainer2"]
+margin_left = 43.0
+margin_top = 19.0
+margin_right = 294.0
+margin_bottom = 89.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 5 )
+alignment = 1
+
+[node name="EnergyLabel" type="Label" parent="HUD/PanelContainer2/VBoxContainer"]
+margin_right = 251.0
+margin_bottom = 33.0
+theme = ExtResource( 5 )
+text = "0 Energy"
+align = 1
+script = ExtResource( 7 )
+
+[node name="EnergyLabel2" type="Label" parent="HUD/PanelContainer2/VBoxContainer"]
+margin_top = 37.0
+margin_right = 251.0
+margin_bottom = 70.0
+theme = ExtResource( 5 )
+text = "building costs 0 energy"
+align = 1
+script = ExtResource( 14 )
+
+[node name="PanelContainer4" type="PanelContainer" parent="HUD"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -60.0
+margin_right = 199.344
+theme = ExtResource( 5 )
+
+[node name="EnergyLevelLabel" type="Label" parent="HUD/PanelContainer4"]
+margin_top = 13.0
+margin_right = 199.344
+margin_bottom = 46.0
+theme = ExtResource( 5 )
+text = "Lv. 1 Energy"
+align = 1
+script = ExtResource( 11 )
+
+[node name="ArtifactPanel" type="PanelContainer" parent="HUD"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -99.672
+margin_right = 99.672
+margin_bottom = 60.0
+theme = ExtResource( 5 )
+
+[node name="ArtifactLabel" type="Label" parent="HUD/ArtifactPanel"]
+margin_top = 13.0
+margin_right = 199.344
+margin_bottom = 46.0
+theme = ExtResource( 5 )
+text = "0/1 Artifacts"
+align = 1
+script = ExtResource( 15 )
+
+[node name="PanelContainer5" type="PanelContainer" parent="HUD"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -199.344
+margin_top = -60.0
+theme = ExtResource( 5 )
+
+[node name="EnergyLevelLabel" type="Label" parent="HUD/PanelContainer5"]
+margin_top = 13.0
+margin_right = 199.344
+margin_bottom = 46.0
+theme = ExtResource( 5 )
+text = "Lv. 1 Speed"
+align = 1
+script = ExtResource( 10 )
+
+[node name="PanelContainer3" type="PanelContainer" parent="HUD"]
+anchor_left = 0.66
+anchor_right = 1.0
+anchor_bottom = 0.153
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 5 )
+
+[node name="MoneyLabel" type="Label" parent="HUD/PanelContainer3"]
+margin_left = 159.0
+margin_top = 29.0
+margin_right = 188.0
+margin_bottom = 62.0
+size_flags_horizontal = 4
+theme = ExtResource( 5 )
+text = "$0"
+align = 1
+script = ExtResource( 8 )
+
+[node name="Shop" type="PanelContainer" parent="HUD"]
+anchor_left = 0.3
+anchor_top = 0.95
+anchor_right = 0.7
+anchor_bottom = 1.0
+theme = ExtResource( 5 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Shop"]
+margin_right = 409.6
+margin_bottom = 30.0
+theme = ExtResource( 5 )
+
+[node name="EnergyBuyButton" type="Button" parent="HUD/Shop/HBoxContainer"]
+margin_right = 202.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+text = "Upgrade Energy ($20)"
+script = ExtResource( 13 )
+
+[node name="SpeedBuyButton" type="Button" parent="HUD/Shop/HBoxContainer"]
+margin_left = 206.0
+margin_right = 409.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+text = "Upgrade Speed ($5)"
+script = ExtResource( 12 )
+
+[node name="EnergyIcon" type="TextureRect" parent="HUD"]
+anchor_left = 0.014
+anchor_top = 0.149
+anchor_right = 0.061
+anchor_bottom = 0.156
+margin_right = 40.0
+margin_bottom = 64.0
+texture = ExtResource( 22 )
+
+[node name="ArtifactIcon" type="TextureRect" parent="HUD"]
+anchor_left = 0.5
+anchor_top = 0.079
+anchor_right = 0.5
+anchor_bottom = 0.156
+margin_left = -32.0
+margin_right = 32.0
+margin_bottom = 30.4
+grow_horizontal = 2
+rect_pivot_offset = Vector2( 32, 0 )
+texture = ExtResource( 9 )
+
+[node name="MoneyIcon" type="TextureRect" parent="HUD"]
+anchor_left = 0.929
+anchor_top = 0.122
+anchor_right = 0.95
+anchor_bottom = 0.156
+margin_left = -2.49603
+margin_right = 40.0
+margin_bottom = 64.0
+grow_horizontal = 0
+texture = ExtResource( 21 )
+
+[node name="TitleScreen" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 6 )
+
+[node name="Backdrop" type="PanelContainer" parent="TitleScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PanelContainer" type="PanelContainer" parent="TitleScreen"]
+anchor_left = 0.3
+anchor_top = 0.255
+anchor_right = 0.7
+anchor_bottom = 0.5
+margin_left = -7.0
+margin_top = -7.0
+margin_right = 7.0
+margin_bottom = 7.0
+theme = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="TitleScreen/PanelContainer"]
+margin_right = 423.6
+margin_bottom = 161.0
+theme = ExtResource( 6 )
+texture = ExtResource( 16 )
+stretch_mode = 6
+
+[node name="PanelContainer2" type="PanelContainer" parent="TitleScreen"]
+anchor_left = 0.2
+anchor_top = 0.534
+anchor_right = 0.8
+anchor_bottom = 0.704
+margin_left = -7.0
+margin_top = -7.0
+margin_right = 7.0
+margin_bottom = 7.0
+theme = ExtResource( 6 )
+
+[node name="RichTextLabel" type="Label" parent="TitleScreen/PanelContainer2"]
+margin_top = 4.0
+margin_right = 628.4
+margin_bottom = 111.0
+theme = ExtResource( 6 )
+text = "You are a mining facility set out to recover the lost artifacts of this mysterious world.  Right click and drag to pan the camera while playing, and left click to place a mining node in range of the nearest node you have currently built to expand your network into the depths.  Build near gems and batteries to extract some money and energy.  Money is used to buy upgrades.  Energy is used to construct additional nodes.  Explore the map to find all the missing artifacts.  Good luck!"
+align = 1
+autowrap = true
+
+[node name="StartGameButton" type="Button" parent="TitleScreen"]
+anchor_left = 0.4
+anchor_top = 0.735
+anchor_right = 0.6
+anchor_bottom = 0.802
+margin_right = 12.0
+margin_bottom = 20.0
+theme = ExtResource( 6 )
+text = "Start Game"
+script = ExtResource( 17 )
+titleScreenPath = NodePath("..")
+hudPath = NodePath("../../HUD")
+
+[node name="WinScreen" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+theme = ExtResource( 6 )
+script = ExtResource( 18 )
+finalTimePath = NodePath("PanelContainer/VBoxContainer/FinalTime")
+
+[node name="PanelContainer" type="PanelContainer" parent="WinScreen"]
+anchor_left = 0.3
+anchor_top = 0.3
+anchor_right = 0.7
+anchor_bottom = 0.7
+margin_left = -7.0
+margin_top = -7.0
+margin_right = 7.0
+margin_bottom = 7.0
+theme = ExtResource( 6 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinScreen/PanelContainer"]
+margin_right = 423.6
+margin_bottom = 254.0
+theme = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="WinScreen/PanelContainer/VBoxContainer"]
+margin_right = 423.0
+margin_bottom = 85.0
+theme = ExtResource( 6 )
+text = "Congratulations!
+You uncovered the
+Final Artifact!
+Your time is:"
+align = 1
+
+[node name="FinalTime" type="Label" parent="WinScreen/PanelContainer/VBoxContainer"]
+margin_top = 89.0
+margin_right = 423.0
+margin_bottom = 130.0
+theme = ExtResource( 6 )
+text = "0000
+"
+align = 1
+valign = 1
+script = ExtResource( 19 )
+
+[node name="Credits" type="Label" parent="WinScreen/PanelContainer/VBoxContainer"]
+margin_top = 134.0
+margin_right = 423.0
+margin_bottom = 219.0
+theme = ExtResource( 6 )
+text = "Sounds by Michael Kurinnoy @ OpenGameArt.org (GPL 3.0)
+Music by Alexandr Zhelanov @ OpenGameArt.org
+Programming, Design by Ian Feldschneider
+Art by Kenney's Free Voxel Pack and Ian Feldschneider"
+align = 1
+
+[node name="PlayAgainButton" type="Button" parent="WinScreen/PanelContainer/VBoxContainer"]
+margin_top = 223.0
+margin_right = 423.0
+margin_bottom = 242.0
+theme = ExtResource( 6 )
+text = "Play Again?"
+script = ExtResource( 20 )
+
+[node name="Volumes" type="PanelContainer" parent="."]
+visible = false
+anchor_top = 0.898
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 6 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Volumes"]
+margin_right = 1024.0
+margin_bottom = 61.2
+
+[node name="SoundBar" type="HBoxContainer" parent="Volumes/HBoxContainer"]
+margin_right = 338.0
+margin_bottom = 61.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Volumes/HBoxContainer/SoundBar"]
+margin_top = 21.0
+margin_right = 93.0
+margin_bottom = 40.0
+text = "Master Volume"
+
+[node name="Master" type="HSlider" parent="Volumes/HBoxContainer/SoundBar"]
+margin_left = 97.0
+margin_top = 22.0
+margin_right = 338.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -30.0
+max_value = 0.0
+value = -15.0
+script = ExtResource( 23 )
+
+[node name="SoundBar2" type="HBoxContainer" parent="Volumes/HBoxContainer"]
+margin_left = 342.0
+margin_right = 681.0
+margin_bottom = 61.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Volumes/HBoxContainer/SoundBar2"]
+margin_top = 21.0
+margin_right = 83.0
+margin_bottom = 40.0
+text = "Music Volume"
+
+[node name="Music" type="HSlider" parent="Volumes/HBoxContainer/SoundBar2"]
+margin_left = 87.0
+margin_top = 22.0
+margin_right = 339.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -30.0
+max_value = 0.0
+script = ExtResource( 23 )
+bus = "Music"
+
+[node name="SoundBar3" type="HBoxContainer" parent="Volumes/HBoxContainer"]
+margin_left = 685.0
+margin_right = 1024.0
+margin_bottom = 61.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Volumes/HBoxContainer/SoundBar3"]
+margin_top = 21.0
+margin_right = 68.0
+margin_bottom = 40.0
+text = "Sfx Volume"
+
+[node name="Sfx" type="HSlider" parent="Volumes/HBoxContainer/SoundBar3"]
+margin_left = 72.0
+margin_top = 22.0
+margin_right = 339.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -30.0
+max_value = 0.0
+script = ExtResource( 23 )
+bus = "Sfx"
+
+[node name="ToggleVolumesButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -20.0
+margin_bottom = 20.0
+texture_normal = ExtResource( 24 )
+script = ExtResource( 25 )
+volumeSlidersPath = NodePath("../Volumes")

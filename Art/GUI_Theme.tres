@@ -1,0 +1,43 @@
+[gd_resource type="Theme" load_steps=6 format=2]
+
+[ext_resource path="res://Art/Fonts/Neucha/Neucha_Font.tres" type="DynamicFont" id=2]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.305882, 0.0666667, 0.415686, 0.898039 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.227451, 0.0823529, 0.286275, 0.764706 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.109804, 0.0470588, 0.137255, 0.901961 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.168627, 0.054902, 0.227451, 0.737255 )
+
+[resource]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = ExtResource( 2 )
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource( 3 )
+Button/styles/normal = SubResource( 4 )
+Button/styles/pressed = SubResource( 5 )
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = ExtResource( 2 )
+Label/styles/normal = null
+MarginContainer/constants/margin_bottom = 0
+MarginContainer/constants/margin_left = 0
+MarginContainer/constants/margin_right = 0
+MarginContainer/constants/margin_top = 0
+PanelContainer/styles/panel = SubResource( 1 )

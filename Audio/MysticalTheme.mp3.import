@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MysticalTheme.mp3-19ba0f1d5f81551a61a5832042fc46ac.mp3str"
+
+[deps]
+
+source_file="res://Audio/MysticalTheme.mp3"
+dest_files=[ "res://.import/MysticalTheme.mp3-19ba0f1d5f81551a61a5832042fc46ac.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
